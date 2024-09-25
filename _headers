@@ -1,3 +1,4 @@
 /models/ninja.glb
   Access-Control-Allow-Origin: *
   Cache-Control: no-cache
+  Content-Type: model/gltf-binary
