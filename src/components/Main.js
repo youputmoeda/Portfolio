@@ -1,18 +1,24 @@
 import React from 'react';
 import {
-	BrowserRouter as Router,
-	Routes,
-	Route,
+	BrowserRouter as Router
 } from "react-router-dom";
 
-import Home from "../pages";
+import PersonalNavbar from './PersonalNavbar';
+import Hero from '../pages/Hero';
+import Experience from '../pages/Experience';
+import About from '../pages/about';
 
 const Main = () => {
 	return (
 		<Router>
-			<Routes>
-				<Route path="/" element={<Home />} />
-			</Routes>
+			<div className="relative z-0 gb-primary">
+				<div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
+					<PersonalNavbar />
+					<Hero />
+				</div>
+				<About />
+				<Experience />
+			</div>
 		</Router>
 	)
 }

@@ -1,10 +1,12 @@
-import './App.css';
-import Main from './components/Main';
+ import Main from './components/Main';
+import { CharacterAnimationsProvider } from './context/CharacterAnimations';
 
 function App() {
   return (
     <div className="App">
-      <Main />
+      <CharacterAnimationsProvider>
+        <Main />
+      </CharacterAnimationsProvider>
     </div>
   );
 }
