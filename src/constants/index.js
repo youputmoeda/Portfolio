@@ -25,6 +25,10 @@
 	threejs,
 } from "../assets"; */
 
+import bi4all from "../assets/bi4all.webp";
+import fakedoor from "../assets/fakedoor.svg";
+import gamePad from "../assets/gamePad.svg";
+
 export const navLinks = [
 	{
 		id: "about",
@@ -46,15 +50,15 @@ const services = [
 		/* icon: web, */
 	},
 	{
-		title: "React Native Developer",
-		/* icon: mobile, */
+		title: "Game Developer",
+		icon: gamePad,
 	},
 	{
-		title: "Backend Developer",
+		title: "Full-Stack Developer",
 		/* icon: backend, */
 	},
 	{
-		title: "Content Creator",
+		title: "Project Manager",
 		/* icon: creator, */
 	},
 ];
@@ -116,35 +120,37 @@ const technologies = [
 
 const experiences = [
 	{
-		title: "React.js Developer",
-		company_name: "Starbucks",
-		/* icon: starbucks, */
-		iconBg: "#383E56",
-		date: "March 2020 - April 2021",
+		title: "Fullstack Software Engineer",
+		company_name: "BI4ALL",
+		icon: bi4all,
+		iconBg: "#fff",
+		date: "Sept 2022 - July 2023",
 		points: [
-			"Developing and maintaining web applications using React.js and other related technologies.",
-			"Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-			"Implementing responsive design and ensuring cross-browser compatibility.",
-			"Participating in code reviews and providing constructive feedback to other developers.",
+			"Integrated the Workflow Management API into the Employee Portal, amplifying its functionalities and providing a unified platform.",
+			"Identified and resolved system bottlenecks, ensuring optimal performance and responsiveness to user interactions within the Employee Portal.",
+			"Responsible for the creation of new features within the Employee Portal, elevating the overall user experience and engagement.",
+			"Actively collaborated in defining and implementing best development practices, fostering an environment of efficiency, consistency, and innovation.",
 		],
 	},
 	{
-		title: "React Native Developer",
-		company_name: "Tesla",
-		/* icon: tesla, */
-		iconBg: "#E6DEDD",
-		date: "Jan 2021 - Feb 2022",
+		title: "Software Developer",
+		company_name: "Fakedoor",
+		icon: fakedoor,
+		iconBg: "#fff",
+		date: "July 2023 - July 2024",
 		points: [
-			"Developing and maintaining web applications using React.js and other related technologies.",
-			"Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-			"Implementing responsive design and ensuring cross-browser compatibility.",
-			"Participating in code reviews and providing constructive feedback to other developers.",
+			"Developed 450+ Unity models for WebGL, emphasizing interactivity and responsive user feedback.",
+			"Optimized end-to-end workflows for operational efficiency and improved team experience.",
+			"Utilized Git on Bitbucket, managing branches, commits, and conflicts for cohesive code history.",
+			"Contributed significantly to a project release, handling critical responsibilities for success.",
+			"Collaborated with various teams, including design, frontend, and backend development, ensuring cohesion and effectiveness in projects."
 		],
 	},
-	{
+	/* {
 		title: "Web Developer",
 		company_name: "Shopify",
 		/* icon: shopify, */
+		/*
 		iconBg: "#383E56",
 		date: "Jan 2022 - Jan 2023",
 		points: [
@@ -153,20 +159,7 @@ const experiences = [
 			"Implementing responsive design and ensuring cross-browser compatibility.",
 			"Participating in code reviews and providing constructive feedback to other developers.",
 		],
-	},
-	{
-		title: "Full stack Developer",
-		company_name: "Meta",
-		/* icon: meta, */
-		iconBg: "#E6DEDD",
-		date: "Jan 2023 - Present",
-		points: [
-			"Developing and maintaining web applications using React.js and other related technologies.",
-			"Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-			"Implementing responsive design and ensuring cross-browser compatibility.",
-			"Participating in code reviews and providing constructive feedback to other developers.",
-		],
-	},
+	},*/
 ];
 
 const testimonials = [

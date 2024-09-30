@@ -7,6 +7,7 @@ import PersonalNavbar from './PersonalNavbar';
 import Hero from '../pages/Hero';
 import Experience from '../pages/Experience';
 import About from '../pages/about';
+import Projects from '../pages/Projects';
 
 const Main = () => {
 	return (
@@ -18,6 +19,7 @@ const Main = () => {
 				</div>
 				<About />
 				<Experience />
+				<Projects />
 			</div>
 		</Router>
 	)
