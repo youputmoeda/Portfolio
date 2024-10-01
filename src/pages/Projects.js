@@ -3,14 +3,14 @@ import { SectionWrapper } from "../hoc"
 import { textVariant } from "../utils/motion";
 import { styles } from "../styles";
 import gradientBlock from "../assets/gradientBlue.jpg";
-import SKProject from "../assets/SKProject.png";
+/* import SKProject from "../assets/SKProject.png"; */
 import { useRef } from "react";
 
-const dataSource = [
+/* const dataSource = [
     'https://js.devexpress.com/Content/images/doc/24_1/PhoneJS/person1.png',
     'https://js.devexpress.com/Content/images/doc/24_1/PhoneJS/person2.png',
     'https://js.devexpress.com/Content/images/doc/24_1/PhoneJS/person3.png'
-];
+]; */
 
 const Projects = () => {
     const ref = useRef(null);
