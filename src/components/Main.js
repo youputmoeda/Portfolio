@@ -8,6 +8,7 @@ import Hero from '../pages/Hero';
 import Experience from '../pages/Experience';
 import About from '../pages/about';
 import Projects from '../pages/Projects';
+import Contact from '../pages/Contact';
 
 const Main = () => {
 	return (
@@ -20,6 +21,9 @@ const Main = () => {
 				<About />
 				<Experience />
 				<Projects />
+				<div className='relative z-0'>
+				<Contact />
+				</div>
 			</div>
 		</Router>
 	)

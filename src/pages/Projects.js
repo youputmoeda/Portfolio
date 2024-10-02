@@ -3,47 +3,119 @@ import { SectionWrapper } from "../hoc"
 import { textVariant } from "../utils/motion";
 import { styles } from "../styles";
 import gradientBlock from "../assets/gradientBlue.jpg";
-/* import SKProject from "../assets/SKProject.png"; */
+import { projects } from "../constants";
 import { useRef } from "react";
 
-/* const dataSource = [
-    'https://js.devexpress.com/Content/images/doc/24_1/PhoneJS/person1.png',
-    'https://js.devexpress.com/Content/images/doc/24_1/PhoneJS/person2.png',
-    'https://js.devexpress.com/Content/images/doc/24_1/PhoneJS/person3.png'
-]; */
+import { EffectCards } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.css';
+import { Link } from "@mui/material";
+
 
 const Projects = () => {
     const ref = useRef(null);
+
+    // Scroll progress associado ao ref
     const { scrollYProgress } = useScroll({
         target: ref,
-        offset: ["start end", "start start"],
+        offset: ["start end", "center center"],
     });
 
-    const scale = useTransform(scrollYProgress, [0, 0.1, 0.5], [1, 1, 3]);
+    // Escala da imagem externa
+    const outerScale = useTransform(scrollYProgress, [0, 0.5], [0.5, 1]);
+
+    // Animação de opacidade e escala para os computadores e texto
+    const computerOpacity = useTransform(scrollYProgress, [0.6, 0.8], [0, 1]);
+    const computerScale = useTransform(scrollYProgress, [0.6, 0.8], [0.8, 1]);
+
+    // Garantir que o texto e as imagens mantêm a opacidade e escala no fim da animação
+    const textOpacity = useTransform(scrollYProgress, [0.6, 1], [0, 1]);
+    const textX = useTransform(scrollYProgress, [0.6, 0.8], [-200, 1]);
+
+    const imagesX = useTransform(scrollYProgress, [0.6, 0.8], [200, 0]);
+
     return (
         <>
             <motion.div variants={textVariant()}>
-                <p className={styles.sectionSubText}>Projects i have been part of</p>
+                <p className={styles.sectionSubText}>Projects I have been part of</p>
                 <h2 className={styles.sectionHeadText}>Projects.</h2>
             </motion.div>
-            <section style={{ position: "relative", height: "100vh", width: "100vw" }}>
-                <div ref={ref} style={{ height: "100%", width: "100%" }}>
-                    <motion.img
-                        src={gradientBlock}
-                        className="w-full"
-                        style={{
-                            scale,
-                            width: "100vw",
-                            height: "100vh",
-                            top: 0,
-                            left: 0,
-                            zIndex: -1,
-                          }}
-                    />
-                </div>
-            </section>
+
+            <Swiper
+                effect={'cards'}
+                grabCursor={true}
+                modules={[EffectCards]}
+            >
+                <section className="relative h-[400vh] 2-[400vh] flex justify-center items-center">
+                    {projects.map((project, index) => (
+                        <SwiperSlide key={index} className="relative h-[80vh] w-full flex justify-between items-center">
+
+                            <div ref={ref} className="relative h-[80vh] w-full flex justify-between items-center">
+
+                                {/* Imagem Externa */}
+                                <motion.div
+                                    className="absolute inset-0 w-full h-full"
+                                    style={{ scale: outerScale }}
+                                >
+                                    <img
+                                        src={gradientBlock}
+                                        alt="Imagem Externa"
+                                        className="w-full h-full object-cover rounded-xl" />
+                                </motion.div>
+
+                                {/* Texto à Esquerda */}
+                                <motion.div
+                                    className="w-[40%] h-full flex flex-col justify-center items-start space-y-4 p-8"
+                                    style={{
+                                        opacity: textOpacity,
+                                        x: textX,
+                                    }}
+                                >
+                                    <h2 className="text-4xl font-bold text-gray-800">{project.name}</h2>
+                                    <p className="text-lg text-gray-600">
+                                        {project.description}
+                                    </p>
+                                    <Link href={project.source_code_link} underline="hover" target="_blank">
+                                        {'Link to project'}
+                                    </Link>
+                                </motion.div>
+
+                                <motion.div
+                                    className="flex flex-col justify-between w-[55%] h-full"
+                                    style={{
+                                        opacity: computerOpacity,
+                                        scale: computerScale,
+                                        x: imagesX,
+                                    }}
+                                >
+                                    {/* Imagem 1 */}
+                                    <div className="relative right-8 flex w-[45vh] h-[45vh]">
+                                        <motion.img
+                                            src={project.source_media.image1}
+                                            alt={`Image 1 of ${project.name}`}
+                                            className="w-full h-full object-cover" />
+
+                                        <motion.img
+                                            src={project.source_media.image2}
+                                            alt={`Image 2 of ${project.name}`}
+                                            className="w-full h-full object-cover" />
+                                    </div>
+
+                                    {/* Vídeo */}
+                                    <div className="relative w-[80vh] h-[80vh] mb-4">
+                                        <motion.video
+                                            src={project.source_media.video}
+                                            controls
+                                            className="w-full h-full object-cover" />
+                                    </div>
+                                </motion.div>
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </section >
+            </Swiper>
         </>
-    )
+    );
 }
 
 export default SectionWrapper(Projects, "projects");
