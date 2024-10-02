@@ -27,7 +27,10 @@
 
 import bi4all from "../assets/bi4all.webp";
 import fakedoor from "../assets/fakedoor.svg";
-import gamePad from "../assets/gamePad.svg";
+import gamePad from "../assets/socialMedia.png";
+import projectManager from "../assets/ProjectManager.png";
+import web from "../assets/WebDeveloper.png";
+import fullStack from "../assets/FullStack.png";
 import SKproject from "../assets/SKProject-Laptop.png";
 
 export const navLinks = [
@@ -48,7 +51,7 @@ export const navLinks = [
 const services = [
 	{
 		title: "Web Developer",
-		/* icon: web, */
+		icon: web,
 	},
 	{
 		title: "Game Developer",
@@ -56,11 +59,11 @@ const services = [
 	},
 	{
 		title: "Full-Stack Developer",
-		/* icon: backend, */
+		icon: fullStack,
 	},
 	{
 		title: "Project Manager",
-		/* icon: creator, */
+		icon: projectManager,
 	},
 ];
 
