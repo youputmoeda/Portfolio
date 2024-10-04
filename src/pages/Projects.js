@@ -97,10 +97,14 @@ const Projects = () => {
 
                                         {/* Vídeo */}
                                         <div className="relative w-full h-[40vh] mb-4">
-                                            <motion.video
+                                            <iframe
+                                                title={project.name}
                                                 src={project.source_media.video}
-                                                controls
-                                                className="w-full h-full object-cover rounded-lg shadow-lg" />
+                                                frameborder="0"
+                                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                                allowfullscreen
+                                                className="w-full h-full object-cover rounded-lg shadow-lg"
+                                            />
                                         </div>
                                     </motion.div>
                                 </div>

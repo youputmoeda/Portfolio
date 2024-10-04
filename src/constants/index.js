@@ -34,7 +34,6 @@ import fullStack from "../assets/FullStack.png";
 import SKproject from "../assets/SKProject-Laptop.png";
 import SKprojectFront from "../assets/SKProjectFront-Laptop.png";
 import FDprojectFront from "../assets/Fakedoor-LandingPage.png";
-import FDprojectVideo from "../assets/FakedoorVideo.mov"
 
 export const navLinks = [
 	{
@@ -243,7 +242,7 @@ const projects = [
 		],
 		source_media: {
 			image1: SKproject,
-			video: FDprojectVideo,
+			video: "https://www.youtube.com/embed/CQq_XJeuTUA?autoplay=1&controls=0&rel=0&showinfo=0&modestbranding=1&mute=1",
 			image2: FDprojectFront,
 		},
 		/* image: carrent, */
