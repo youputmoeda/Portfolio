@@ -3,6 +3,10 @@ module.exports = {
   content: ["./src/**/*.{js,jsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        abeezee: ['ABeeZee', 'sans-serif'],
+        inknut: ['Inknut Antiqua', 'serif']
+      },
       colors: {
         primary: "#050816",
         secondary: "#aaa6c3",
@@ -18,7 +22,11 @@ module.exports = {
         xs: "450px",
       },
       backgroundImage: {
-        "hero-pattern": "url('./assets/BackgroundImage.jpg')",
+        "backgroundB": "url('./assets/Background/Background.png')", 
+        "Big-mountain": "url('./assets/Background/BigMoutain.png')",
+        "Left-mountain": "url('./assets/Background/LeftMoutain.png')",
+        "Right-mountain": "url('./assets/Background/RightMountain.png')",
+        "Small-mountain": "url('./assets/Background/SmallMountain.png')",
       },
     },
   },

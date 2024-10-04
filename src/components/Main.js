@@ -9,20 +9,26 @@ import Experience from '../pages/Experience';
 import About from '../pages/about';
 import Projects from '../pages/Projects';
 import Contact from '../pages/Contact';
+import Parallalex from '../pages/Parallalex';
 
 const Main = () => {
 	return (
 		<Router>
-			<div className="relative z-0 gb-primary">
-				<div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
+			<div className="relative z-0 bg-primary">
+				<div className="relative z-0">
+					<Parallalex />
+				</div>
+				<div className='relative z-30'>
 					<PersonalNavbar />
+				</div>
+				<div className="absolute inset-0 z-10">
 					<Hero />
 				</div>
-				<About />
-				<Experience />
-				<Projects />
-				<div className='relative z-0'>
-				<Contact />
+				<div className='relative z-20'>
+					<About />
+					<Experience />
+					<Projects />
+					<Contact />
 				</div>
 			</div>
 		</Router>

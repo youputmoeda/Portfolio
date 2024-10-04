@@ -1,7 +1,7 @@
 import React, { Link } from "react-router-dom";
 import { styles } from "../styles.js";
 import { useState } from "react";
-import logo from "../assets/logo.svg";
+import logo from "../assets/Logos/png/just-iconWhite.png";
 import menu from "../assets/menu.svg";
 import close from "../assets/close.svg";
 import { navLinks } from '../constants/index.js';

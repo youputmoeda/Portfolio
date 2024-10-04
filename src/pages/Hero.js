@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 const Hero = () => {
 	return (
 		<section className={`relative w-full h-screen mx-auto`}>
+			
 			<div
 				className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
 			>
@@ -21,8 +22,8 @@ const Hero = () => {
 					<span className={`${styles.heroSubText} mt-2
 						text-white-100`}
 					>
-						I develop 3D visuals <br className="sm:block hidden" />
-						and web Applications
+						Transforming ideas. <br className="sm:block hidden" />
+						into immersive digital experiences
 					</span>
 				</div>
 			</div>

@@ -16,8 +16,6 @@ export default function Ninja(props) {
   const { scene, animations } = useGLTF('./models/ninja.glb')
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene])
   const { nodes, materials } = useGraph(clone)
-  console.log("Ninja:\n")
-  console.log(nodes)
 
   const { setAnimations, animationIndex } = useCharacterAnimations();
   const { actions, names } = useAnimations(animations, group)

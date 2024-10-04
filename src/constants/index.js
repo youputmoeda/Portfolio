@@ -32,6 +32,9 @@ import projectManager from "../assets/ProjectManager.png";
 import web from "../assets/WebDeveloper.png";
 import fullStack from "../assets/FullStack.png";
 import SKproject from "../assets/SKProject-Laptop.png";
+import SKprojectFront from "../assets/SKProjectFront-Laptop.png";
+import FDprojectFront from "../assets/Fakedoor-LandingPage.png";
+import FDprojectVideo from "../assets/FakedoorVideo.mov"
 
 export const navLinks = [
 	{
@@ -195,9 +198,9 @@ const testimonials = [
 
 const projects = [
 	{
-		name: "Portugal Taikai 2025",
+		name: "ShorinjiKempo Portugal - National Taikai",
 		description:
-			"Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+			"Web platform for the National Taikai, enabling over 200 spectators to track real-time scores with advanced filters. Judges securely securely log scores through a password-protected interface, managing up to 100 teams. The system supports evaluations of technique, performance, timing, and penalties for streamlined martial arts competition management.",
 		tags: [
 			{
 				name: "react",
@@ -215,15 +218,15 @@ const projects = [
 		source_media: {
 			image1: SKproject,
 			video: SKproject,
-			image2: SKproject,
+			image2: SKprojectFront,
 		},
 		/* image: carrent, */
 		source_code_link: "https://github.com/",
 	},
 	{
-		name: "Portugal Taikai 2026",
+		name: "Software Developer at Fakedoor",
 		description:
-			"Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+			"Web platform revolutionizing Science GCSE exam preparation through over 450 interactive 3D models developed in Unity. This innovative solution gamifies learning, offering engaging, hands-on experiences that simplify complex scientific concepts. With teacher-crafted materials aligned with GCSE specifications, the platform boosts understanding and enhances exam success through immersive animations and interactive content.",
 		tags: [
 			{
 				name: "react",
@@ -240,8 +243,8 @@ const projects = [
 		],
 		source_media: {
 			image1: SKproject,
-			video: SKproject,
-			image2: SKproject,
+			video: FDprojectVideo,
+			image2: FDprojectFront,
 		},
 		/* image: carrent, */
 		source_code_link: "https://github.com/",

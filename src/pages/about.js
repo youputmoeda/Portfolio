@@ -25,9 +25,9 @@ const ServiceCard = ({ index, title, icon }) => {
 					py-5 px-12 min-h-[280px] flex
 					justify-evenly items-center flex-col"
 				>
-					<img src={icon} alt='web-development' className='w-22 h-22 object-contain' />
+					<img src={icon} alt='web-development' className='w-20 h-20 object-contain' />
 
-					<h3 className='text-white text-[20px] font-bold text-center'>
+					<h3 className='text-white text-[20px] font-abeezee font-bold text-center'>
 						{title}
 					</h3>
 				</div>

@@ -10,8 +10,7 @@ export default function FlipPhone(props) {
   const { scene } = useGLTF('./models/FlipPhone.glb')
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene])
   const { nodes, materials } = useGraph(clone)
-  console.log("FlipPhone:\n")
-  console.log(nodes)
+
   return (
     <group ref={group} {...props} dispose={null}>
       <group name='Scene' rotation={[-1.757, 0, 0]}>

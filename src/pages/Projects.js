@@ -2,7 +2,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { SectionWrapper } from "../hoc"
 import { textVariant } from "../utils/motion";
 import { styles } from "../styles";
-import gradientBlock from "../assets/gradientBlue.jpg";
 import { projects } from "../constants";
 import { useRef } from "react";
 
@@ -46,69 +45,65 @@ const Projects = () => {
                 grabCursor={true}
                 modules={[EffectCards]}
             >
-                <section className="relative h-[400vh] 2-[400vh] flex justify-center items-center">
+                <section className="relative h-[400vh] w-[400vh] flex justify-center items-center">
                     {projects.map((project, index) => (
                         <SwiperSlide key={index} className="relative h-[80vh] w-full flex justify-between items-center">
-
                             <div ref={ref} className="relative h-[80vh] w-full flex justify-between items-center">
-
                                 {/* Imagem Externa */}
                                 <motion.div
-                                    className="absolute inset-0 w-full h-full"
+                                    className="absolute inset-0 w-full h-full rounded-xl
+                                    bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"
                                     style={{ scale: outerScale }}
-                                >
-                                    <img
-                                        src={gradientBlock}
-                                        alt="Imagem Externa"
-                                        className="w-full h-full object-cover rounded-xl" />
-                                </motion.div>
+                                />
 
                                 {/* Texto à Esquerda */}
-                                <motion.div
-                                    className="w-[40%] h-full flex flex-col justify-center items-start space-y-4 p-8"
-                                    style={{
-                                        opacity: textOpacity,
-                                        x: textX,
-                                    }}
-                                >
-                                    <h2 className="text-4xl font-bold text-gray-800">{project.name}</h2>
-                                    <p className="text-lg text-gray-600">
-                                        {project.description}
-                                    </p>
-                                    <Link href={project.source_code_link} underline="hover" target="_blank">
-                                        {'Link to project'}
-                                    </Link>
-                                </motion.div>
+                                <div className="relative flex w-full h-full p-8 space-x-4">
+                                    <motion.div
+                                        className="w-1/2 flex flex-col justify-center items-start space-y-4"
+                                        style={{
+                                            opacity: textOpacity,
+                                            x: textX,
+                                        }}
+                                    >
+                                        <h2 className="text-2xl font-bold text-gray-800">{project.name}</h2>
+                                        <p className="text-base text-gray-600">
+                                            {project.description}
+                                        </p>
+                                        <Link href={project.source_code_link} underline="hover" target="_blank" className="text-blue-500 hover:underline">
+                                            {'Link to project'}
+                                        </Link>
+                                    </motion.div>
 
-                                <motion.div
-                                    className="flex flex-col justify-between w-[55%] h-full"
-                                    style={{
-                                        opacity: computerOpacity,
-                                        scale: computerScale,
-                                        x: imagesX,
-                                    }}
-                                >
-                                    {/* Imagem 1 */}
-                                    <div className="relative right-8 flex w-[45vh] h-[45vh]">
-                                        <motion.img
-                                            src={project.source_media.image1}
-                                            alt={`Image 1 of ${project.name}`}
-                                            className="w-full h-full object-cover" />
+                                    <motion.div
+                                        className="flex flex-col justify-center items-center w-1/2 space-y-4"
+                                        style={{
+                                            opacity: computerOpacity,
+                                            scale: computerScale,
+                                            x: imagesX,
+                                        }}
+                                    >
+                                        {/* Imagem 1 */}
+                                        <div className="flex justify-center space-x-4 w-full">
+                                            <motion.img
+                                                src={project.source_media.image1}
+                                                alt={`Image 1 of ${project.name}`}
+                                                className="w-1/2 h-auto object-cover rounded-lg shadow-lg" />
 
-                                        <motion.img
-                                            src={project.source_media.image2}
-                                            alt={`Image 2 of ${project.name}`}
-                                            className="w-full h-full object-cover" />
-                                    </div>
+                                            <motion.img
+                                                src={project.source_media.image2}
+                                                alt={`Image 2 of ${project.name}`}
+                                                className="w-1/2 h-auto object-cover rounded-lg shadow-lg" />
+                                        </div>
 
-                                    {/* Vídeo */}
-                                    <div className="relative w-[80vh] h-[80vh] mb-4">
-                                        <motion.video
-                                            src={project.source_media.video}
-                                            controls
-                                            className="w-full h-full object-cover" />
-                                    </div>
-                                </motion.div>
+                                        {/* Vídeo */}
+                                        <div className="relative w-full h-[40vh] mb-4">
+                                            <motion.video
+                                                src={project.source_media.video}
+                                                controls
+                                                className="w-full h-full object-cover rounded-lg shadow-lg" />
+                                        </div>
+                                    </motion.div>
+                                </div>
                             </div>
                         </SwiperSlide>
                     ))}
