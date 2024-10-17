@@ -1,6 +1,5 @@
 import { useProgress } from '@react-three/drei';
 import { motion } from 'framer-motion';
-import Particles from 'react-tsparticles';
 import YinYang from '../assets/yin-yang.svg';
 
 const Loader = () => {
