@@ -198,8 +198,10 @@ const testimonials = [
 const projects = [
 	{
 		name: "ShorinjiKempo Portugal - National Taikai",
-		description:
-			"Web platform for the National Taikai, enabling over 200 spectators to track real-time scores with advanced filters. Judges securely securely log scores through a password-protected interface, managing up to 100 teams. The system supports evaluations of technique, performance, timing, and penalties for streamlined martial arts competition management.",
+		description: [
+			"Web platform for the National Taikai, enabling over 200 spectators to track real-time scores with advanced filters.",
+			"Judges securely log scores through a password-protected interface, managing up to 100 teams. The system supports evaluations of technique, performance, timing, and penalties for streamlined martial arts competition management."
+		],
 		tags: [
 			{
 				name: "react",
@@ -224,8 +226,10 @@ const projects = [
 	},
 	{
 		name: "Software Developer at Fakedoor",
-		description:
-			"Web platform revolutionizing Science GCSE exam preparation through over 450 interactive 3D models developed in Unity. This innovative solution gamifies learning, offering engaging, hands-on experiences that simplify complex scientific concepts. With teacher-crafted materials aligned with GCSE specifications, the platform boosts understanding and enhances exam success through immersive animations and interactive content.",
+		description: [
+			"Web platform revolutionizing Science GCSE exam preparation through over 450 interactive 3D models developed in Unity.",
+			"This innovative solution gamifies learning and simplifies complex scientific concepts through engaging, hands-on experiences. Teacher-crafted materials aligned with GCSE specifications enhance exam success."
+		],
 		tags: [
 			{
 				name: "react",

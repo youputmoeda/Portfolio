@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { SectionWrapper } from "../hoc"
 import { styles } from "../styles";
 import { slideIn } from "../utils/motion";
-import { Suspense, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { Canvas } from "@react-three/fiber";
-import { Loader, OrbitControls } from "@react-three/drei";
+import { OrbitControls, Preload } from "@react-three/drei";
 import FlipPhone from "../components/FlipPhone";
 
 const Contact = () => {
@@ -153,7 +153,6 @@ const Contact = () => {
                             intensity={2}
                             position={[0.636, 2.912, 1.053]}
                         />
-                        <Suspense fallback={<Loader />}>
                             <OrbitControls
                                 enableZoom={false}
                                 autoRotate={true}
@@ -165,7 +164,7 @@ const Contact = () => {
                                 rotation={[13.1, 0, 0]}
                                 position={[0, -4.5, -2]}
                             />
-                        </Suspense>
+                            <Preload all />
                     </Canvas>
 
                 </motion.div>

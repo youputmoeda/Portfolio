@@ -33,26 +33,26 @@ const Parallalex = () => {
                 }}
             />
             <div
-                className="absolute top-[calc(50%+50px)] left-[calc(50%-500px)] w-[500px] h-[315px] bg-Big-mountain bg-cover bg-center"
+                className="absolute top-[calc(50%+135px)] left-[calc(50%-500px)] w-[500px] h-[315px] bg-Big-mountain bg-cover bg-center"
                 style={{
                     transform: calculateTransform(5),
                 }}
             />
             <div
-                className="absolute top-[calc(50%+20px)] left-50% w-[210px] h-[350px] bg-Left-mountain bg-cover bg-center"
+                className="absolute top-[calc(50%+100px)] left-50% w-[210px] h-[350px] bg-Left-mountain bg-cover bg-center"
                 style={{
                     transform: calculateTransform(10),
                 }}
             />
             <div
-                className="absolute top-[calc(50%+105px)] right-[calc(0%-4px)] w-[300px] h-[270px] bg-Right-mountain bg-cover bg-center"
+                className="absolute top-[calc(50%+180px)] right-[calc(0%-4px)] w-[300px] h-[270px] bg-Right-mountain bg-cover bg-center"
                 style={{
                     transform: calculateTransform(10),
                 }}
             />
 
             <div
-                className="absolute top-[calc(50%+200px)] right-[calc(50%-355px)] w-[200px] h-[170px] bg-Small-mountain bg-cover bg-center"
+                className="absolute top-[calc(50%+200px)] right-[calc(50%-455px)] w-[300px] h-[250px] bg-Small-mountain bg-cover bg-center"
                 style={{
                     transform: calculateTransform(15),
                 }}

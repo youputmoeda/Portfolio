@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import Ninja from "./Ninja"
-import { Suspense, useEffect, useState } from "react";
-import { Html, OrbitControls, Preload, ScrollControls, useProgress } from "@react-three/drei";
+import { useEffect, useState } from "react";
+import { OrbitControls, Preload, ScrollControls } from "@react-three/drei";
 
 export const Experience = () => {
 	const [isMobile, setIsMobile] = useState(false);
@@ -21,25 +21,6 @@ export const Experience = () => {
 		}
 	}, [])
 
-	function Loader() {
-		const { progress } = useProgress();
-
-		return (
-			<Html>
-				<span className="canvas-load"></span>
-				<p
-					style={{
-						fontSize: 14,
-						color: '#f1f1f1',
-						fontWeight: 800,
-						marginTop: 40
-					}}
-				>
-					{progress.toFixed(2)}%</p>
-			</Html>
-		)
-	}
-
 	return (
 		<Canvas
 			frameloop="demand"
@@ -57,20 +38,18 @@ export const Experience = () => {
 				castShadow
 				shadow-mapSize={1024}
 			/>
-			<Suspense fallback={<Loader />}>
-				<OrbitControls
-					enableZoom={false}
-					maxPolarAngle={Math.PI / 2}
-					minPolarAngle={Math.PI / 2}
+			<OrbitControls
+				enableZoom={false}
+				maxPolarAngle={Math.PI / 2}
+				minPolarAngle={Math.PI / 2}
+			/>
+			<ScrollControls damping={0.5} pages={10}>
+				<Ninja
+					scale={isMobile ? 3 : 4}
+					position={isMobile ? [2, -4, 1] : [4, -4.5, 1]}
+					rotate={[-0.01, -0.2, -0.1]}
 				/>
-				<ScrollControls damping={0.5} pages={10}>
-					<Ninja
-						scale={isMobile ? 3 : 4}
-						position={isMobile ? [2, -4, 1] : [4, -4.5, 1]}
-						rotate={[-0.01, -0.2, -0.1]}
-					/>
-				</ScrollControls>
-			</Suspense>
+			</ScrollControls>
 			<Preload all />
 		</Canvas>
 	)

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
 	BrowserRouter as Router
 } from "react-router-dom";
@@ -10,27 +10,43 @@ import About from '../pages/about';
 import Projects from '../pages/Projects';
 import Contact from '../pages/Contact';
 import Parallalex from '../pages/Parallalex';
+import Loader from '../pages/Loader';
+import { useProgress } from '@react-three/drei';
 
 const Main = () => {
+	const [isLoading, setIsLoading] = useState(true);
+	const { progress } = useProgress();
+
+	useEffect(() => {
+		if (progress === 100) {
+			setTimeout(() => setIsLoading(false), 500);
+		}
+	}, [progress]);
+
+
 	return (
 		<Router>
-			<div className="relative z-0 bg-primary">
-				<div className="relative z-0">
-					<Parallalex />
+			{isLoading ? (
+				<Loader />
+			) : (
+				<div className="relative z-0 bg-primary">
+					<div className="relative z-0">
+						<Parallalex />
+					</div>
+					<div className='relative z-30'>
+						<PersonalNavbar />
+					</div>
+					<div className="absolute inset-0 z-10">
+						<Hero />
+					</div>
+					<div className='relative z-20'>
+						<About />
+						<Experience />
+						<Projects />
+						<Contact />
+					</div>
 				</div>
-				<div className='relative z-30'>
-					<PersonalNavbar />
-				</div>
-				<div className="absolute inset-0 z-10">
-					<Hero />
-				</div>
-				<div className='relative z-20'>
-					<About />
-					<Experience />
-					<Projects />
-					<Contact />
-				</div>
-			</div>
+			)}
 		</Router>
 	)
 }

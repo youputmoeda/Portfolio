@@ -3,7 +3,7 @@ import { styles } from "../styles";
 
 import { motion } from "framer-motion";
 
-const Hero = () => {
+const Hero = ({ setLoadingProgress }) => {
 	return (
 		<section className={`relative w-full h-screen mx-auto`}>
 			
@@ -22,12 +22,12 @@ const Hero = () => {
 					<span className={`${styles.heroSubText} mt-2
 						text-white-100`}
 					>
-						Transforming ideas. <br className="sm:block hidden" />
+						Transforming ideas <br className="sm:block hidden" />
 						into immersive digital experiences
 					</span>
 				</div>
 			</div>
-			<Experience />
+			<Experience setLoadingProgress={setLoadingProgress}/>
 
 			<div className="absolute xs:bottom-10
 			bottom-32 w-full flex justify-center

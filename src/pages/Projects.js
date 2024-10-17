@@ -5,7 +5,7 @@ import { styles } from "../styles";
 import { projects } from "../constants";
 import { useRef } from "react";
 
-import { EffectCards } from 'swiper/modules';
+import { EffectCards, Mousewheel } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import { Link } from "@mui/material";
@@ -43,7 +43,8 @@ const Projects = () => {
             <Swiper
                 effect={'cards'}
                 grabCursor={true}
-                modules={[EffectCards]}
+                mousewheel={scrollYProgress === 1 ? true : false}
+                modules={[Mousewheel, EffectCards]}
             >
                 <section className="relative h-[400vh] w-[400vh] flex justify-center items-center">
                     {projects.map((project, index) => (
@@ -52,12 +53,12 @@ const Projects = () => {
                                 {/* Imagem Externa */}
                                 <motion.div
                                     className="absolute inset-0 w-full h-full rounded-xl
-                                    bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"
+                                    green-pink-gradient"
                                     style={{ scale: outerScale }}
                                 />
 
                                 {/* Texto à Esquerda */}
-                                <div className="relative flex w-full h-full p-8 space-x-4">
+                                <div className="relative flex w-full h-full p-8 space-x-20">
                                     <motion.div
                                         className="w-1/2 flex flex-col justify-center items-start space-y-4"
                                         style={{
@@ -65,11 +66,20 @@ const Projects = () => {
                                             x: textX,
                                         }}
                                     >
-                                        <h2 className="text-2xl font-bold text-gray-800">{project.name}</h2>
-                                        <p className="text-base text-gray-600">
-                                            {project.description}
+                                        <h2 className="text-2xl font-bold text-white">{project.name}</h2>
+                                        <p className="text-base text-gray-200">
+                                            <ul className="list-disc list-inside space-y-4">
+                                                {project.description.map((point, index) => (
+                                                    <li
+                                                        key={`description-point-${index}`}
+                                                        className="mb-2"
+                                                    >
+                                                        {point}
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         </p>
-                                        <Link href={project.source_code_link} underline="hover" target="_blank" className="text-blue-500 hover:underline">
+                                        <Link href={project.source_code_link} underline="hover" target="_blank" className="text-blue-300 hover:underline">
                                             {'Link to project'}
                                         </Link>
                                     </motion.div>
