@@ -5,7 +5,7 @@ import { styles } from "../styles";
 import { projects } from "../constants";
 import { useRef } from "react";
 
-import { EffectCards, Mousewheel } from 'swiper/modules';
+import { Mousewheel, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import { Link } from "@mui/material";
@@ -41,90 +41,89 @@ const Projects = () => {
             </motion.div>
 
             <Swiper
-                effect={'cards'}
                 grabCursor={true}
-                mousewheel={scrollYProgress === 1 ? true : false}
-                modules={[Mousewheel, EffectCards]}
+                navigation={true}
+                pagination={true}
+                modules={[Navigation, Pagination, Mousewheel]}
+                className="relative w-[100%] h-[100%]"
             >
-                <section className="relative h-[400vh] w-[400vh] flex justify-center items-center">
-                    {projects.map((project, index) => (
-                        <SwiperSlide key={index} className="relative h-[80vh] w-full flex justify-between items-center">
-                            <div ref={ref} className="relative h-[80vh] w-full flex justify-between items-center">
-                                {/* Imagem Externa */}
-                                <motion.div
-                                    className="absolute inset-0 w-full h-full rounded-xl
+                {projects.map((project, index) => (
+                    <SwiperSlide key={index} className="flex justify-between items-center ">
+                        <div ref={ref}>
+                            {/* Imagem Externa */}
+                            <motion.div
+                                className="absolute inset-0 w-full h-full rounded-xl
                                     green-pink-gradient"
-                                    style={{ scale: outerScale }}
-                                />
+                                style={{ scale: outerScale }}
+                            />
 
-                                {/* Texto à Esquerda */}
-                                <div className="relative flex w-full h-full p-8 space-x-20">
-                                    <motion.div
-                                        className="w-1/2 flex flex-col justify-center items-start space-y-4"
-                                        style={{
-                                            opacity: textOpacity,
-                                            x: textX,
-                                        }}
-                                    >
-                                        <h2 className="text-2xl font-bold text-white">{project.name}</h2>
-                                        <p className="text-base text-gray-200">
-                                            <ul className="list-disc list-inside space-y-4">
-                                                {project.description.map((point, index) => (
-                                                    <li
-                                                        key={`description-point-${index}`}
-                                                        className="mb-2"
-                                                    >
-                                                        {point}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </p>
-                                        <Link href={project.source_code_link} underline="hover" target="_blank" className="text-blue-300 hover:underline">
-                                            {'Link to project'}
-                                        </Link>
-                                    </motion.div>
+                            {/* Texto à Esquerda */}
+                            <div className="relative flex w-full h-full p-20 space-x-20">
+                                <motion.div
+                                    className="w-1/2 flex flex-col justify-center items-start space-y-4"
+                                    style={{
+                                        opacity: textOpacity,
+                                        x: textX,
+                                    }}
+                                >
+                                    <h2 className="text-2xl font-bold text-white">{project.name}</h2>
+                                    <p className="text-base text-gray-200">
+                                        <ul className="list-disc list-inside space-y-4">
+                                            {project.description.map((point, index) => (
+                                                <li
+                                                    key={`description-point-${index}`}
+                                                    className="mb-2"
+                                                >
+                                                    {point}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </p>
+                                    <Link href={project.source_code_link} underline="hover" target="_blank" className="text-blue-300 hover:underline">
+                                        {'Link to project'}
+                                    </Link>
+                                </motion.div>
 
-                                    <motion.div
-                                        className="flex flex-col justify-center items-center w-1/2 space-y-4"
-                                        style={{
-                                            opacity: computerOpacity,
-                                            scale: computerScale,
-                                            x: imagesX,
-                                        }}
-                                    >
-                                        {/* Imagem 1 */}
-                                        <div className="flex justify-center space-x-4 w-full">
-                                            <motion.img
-                                                src={project.source_media.image1}
-                                                alt={`Image 1 of ${project.name}`}
-                                                className="w-1/2 h-auto object-cover rounded-lg shadow-lg" />
+                                <motion.div
+                                    className="flex flex-col justify-center items-center w-1/2 space-y-4"
+                                    style={{
+                                        opacity: computerOpacity,
+                                        scale: computerScale,
+                                        x: imagesX,
+                                    }}
+                                >
+                                    {/* Imagem 1 */}
+                                    <div className="flex justify-center space-x-4 w-full">
+                                        <motion.img
+                                            src={project.source_media.image1}
+                                            alt={`Image 1 of ${project.name}`}
+                                            className="w-1/2 h-auto object-cover rounded-lg shadow-lg" />
 
-                                            <motion.img
-                                                src={project.source_media.image2}
-                                                alt={`Image 2 of ${project.name}`}
-                                                className="w-1/2 h-auto object-cover rounded-lg shadow-lg" />
-                                        </div>
+                                        <motion.img
+                                            src={project.source_media.image2}
+                                            alt={`Image 2 of ${project.name}`}
+                                            className="w-1/2 h-auto object-cover rounded-lg shadow-lg" />
+                                    </div>
 
-                                        {/* Vídeo */}
-                                        <div className="relative w-full h-[40vh] mb-4">
-                                            <iframe
-                                                title={project.name}
-                                                src={project.source_media.video}
-                                                frameborder="0"
-                                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                                allowfullscreen
-                                                className="w-full h-full object-cover rounded-lg shadow-lg"
-                                            />
-                                        </div>
-                                    </motion.div>
-                                </div>
+                                    {/* Vídeo */}
+                                    <div className="relative w-full h-[40vh] mb-4">
+                                        <iframe
+                                            title={project.name}
+                                            src={project.source_media.video}
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen
+                                            className="w-full h-full object-cover rounded-lg shadow-lg"
+                                        />
+                                    </div>
+                                </motion.div>
                             </div>
-                        </SwiperSlide>
-                    ))}
-                </section >
-            </Swiper>
+                        </div>
+                    </SwiperSlide>
+                ))}
+            </Swiper >
         </>
     );
 }
 
-export default SectionWrapper(Projects, "projects");
+export default SectionWrapper(Projects, "Projects");

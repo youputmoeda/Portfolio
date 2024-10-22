@@ -23,7 +23,6 @@ const Main = () => {
 		}
 	}, [progress]);
 
-
 	return (
 		<Router>
 			{isLoading ? (
