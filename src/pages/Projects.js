@@ -8,6 +8,9 @@ import { useRef } from "react";
 import { Mousewheel, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import './customSwiper.css';
 import { Link } from "@mui/material";
 
 
@@ -33,6 +36,20 @@ const Projects = () => {
 
     const imagesX = useTransform(scrollYProgress, [0.6, 0.8], [200, 0]);
 
+    const pagination = {
+        clickable: true,
+        renderBullet: function (index, className) {
+            return '<span class="' + className + '">' + (index + 1) + '</span>';
+        },
+    };
+
+    const navigation = {
+        renderButtons: function (index, className) {
+            console.log(className);
+            return '<div class="' + className + '">' + (index + 1) + '</div>';
+        }
+    }
+
     return (
         <>
             <motion.div variants={textVariant()}>
@@ -41,9 +58,11 @@ const Projects = () => {
             </motion.div>
 
             <Swiper
+                cssMode={true}
                 grabCursor={true}
-                navigation={true}
-                pagination={true}
+                spaceBetween={10}
+                navigation={navigation}
+                pagination={pagination}
                 modules={[Navigation, Pagination, Mousewheel]}
                 className="relative w-[100%] h-[100%]"
             >
