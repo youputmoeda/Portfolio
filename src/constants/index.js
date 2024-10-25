@@ -31,8 +31,9 @@ import gamePad from "../assets/socialMedia.png";
 import projectManager from "../assets/ProjectManager.png";
 import web from "../assets/WebDeveloper.png";
 import fullStack from "../assets/FullStack.png";
-import SKproject from "../assets/SKProject-Laptop.png";
-import SKprojectFront from "../assets/SKProjectFront-Laptop.png";
+import SKproject from "../assets/SKProject.png";
+import SKprojectFront from "../assets/SKProjectFront.png";
+import FDunityProject from "../assets/FakedoorUnityPrint.png";
 import FDprojectFront from "../assets/Fakedoor-LandingPage.png";
 
 export const navLinks = [
@@ -252,7 +253,7 @@ const projects = [
 			},
 		],
 		source_media: {
-			image1: SKproject,
+			image1: FDunityProject,
 			video: "https://www.youtube.com/embed/CQq_XJeuTUA?autoplay=1&controls=0&rel=0&showinfo=0&modestbranding=1&mute=1",
 			image2: FDprojectFront,
 		},

@@ -5,7 +5,7 @@ import { styles } from "../styles";
 import { projects } from "../constants";
 import { useEffect, useRef, useState } from "react";
 
-import { Mousewheel, Navigation, Pagination } from 'swiper/modules';
+import { Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import 'swiper/css';
@@ -17,15 +17,15 @@ import { Link } from "@mui/material";
 const Projects = () => {
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-	// Atualiza o estado isMobile quando a janela é redimensionada
-	useEffect(() => {
-		const handleResize = () => {
-			setIsMobile(window.innerWidth < 768);
-		};
+    // Atualiza o estado isMobile quando a janela é redimensionada
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
 
-		window.addEventListener('resize', handleResize);
-		return () => window.removeEventListener('resize', handleResize);
-	}, []);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
     const ref = useRef(null);
 
     // Scroll progress associado ao ref
@@ -66,7 +66,8 @@ const Projects = () => {
                 spaceBetween={10}
                 navigation={true}
                 pagination={pagination}
-                modules={[Navigation, Pagination, Mousewheel]}
+                keyboard={true}
+                modules={[Navigation, Pagination, Mousewheel, Keyboard]}
                 className="relative w-full h-full"
             >
                 {projects.map((project, index) => (
@@ -130,16 +131,20 @@ const Projects = () => {
                                     }}
                                 >
                                     {/* Imagem 1 */}
-                                    <div className="flex flex-col md:flex-row justify-center space-x-0 md:space-x-4 w-full">
+                                    <div
+                                        className="flex flex-col md:flex-row justify-center space-x-0 md:space-x-4 w-full"
+                                    >
                                         <motion.img
                                             src={project.source_media.image1}
+                                            loading="lazy"
                                             alt={`Image 1 of ${project.name}`}
-                                            className="w-full md:w-1/2 h-auto object-cover rounded-lg shadow-lg" />
+                                            className="w-full md:w-1/2 h-auto object-fill rounded-lg shadow-lg" />
 
                                         <motion.img
                                             src={project.source_media.image2}
+                                            loading="lazy"
                                             alt={`Image 2 of ${project.name}`}
-                                            className="w-full md:w-1/2 h-auto object-cover rounded-lg shadow-lg" />
+                                            className="w-full md:w-1/2 h-auto object-fill rounded-lg shadow-lg" />
                                     </div>
 
                                     {/* Vídeo */}
@@ -147,10 +152,9 @@ const Projects = () => {
                                         <iframe
                                             title={project.name}
                                             src={project.source_media.video}
-                                            frameborder="0"
                                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                             allowfullscreen
-                                            className="w-full h-full object-cover rounded-lg shadow-lg"
+                                            className="w-full h-full object-none rounded-lg shadow-lg"
                                         />
                                     </div>
                                 </motion.div>
