@@ -3,7 +3,7 @@ import { SectionWrapper } from "../hoc"
 import { textVariant } from "../utils/motion";
 import { styles } from "../styles";
 import { projects } from "../constants";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { Mousewheel, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -15,6 +15,17 @@ import { Link } from "@mui/material";
 
 
 const Projects = () => {
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+	// Atualiza o estado isMobile quando a janela é redimensionada
+	useEffect(() => {
+		const handleResize = () => {
+			setIsMobile(window.innerWidth < 768);
+		};
+
+		window.addEventListener('resize', handleResize);
+		return () => window.removeEventListener('resize', handleResize);
+	}, []);
     const ref = useRef(null);
 
     // Scroll progress associado ao ref
@@ -31,7 +42,7 @@ const Projects = () => {
     const computerScale = useTransform(scrollYProgress, [0.6, 0.8], [0.8, 1]);
 
     // Garantir que o texto e as imagens mantêm a opacidade e escala no fim da animação
-    const textOpacity = useTransform(scrollYProgress, [0.6, 1], [0, 1]);
+    const textOpacity = useTransform(scrollYProgress, [0.6, 0.8], [0, 1]);
     const textX = useTransform(scrollYProgress, [0.6, 0.8], [-200, 1]);
 
     const imagesX = useTransform(scrollYProgress, [0.6, 0.8], [200, 0]);
@@ -43,13 +54,6 @@ const Projects = () => {
         },
     };
 
-    const navigation = {
-        renderButtons: function (index, className) {
-            console.log(className);
-            return '<div class="' + className + '">' + (index + 1) + '</div>';
-        }
-    }
-
     return (
         <>
             <motion.div variants={textVariant()}>
@@ -58,16 +62,15 @@ const Projects = () => {
             </motion.div>
 
             <Swiper
-                cssMode={true}
                 grabCursor={true}
                 spaceBetween={10}
-                navigation={navigation}
+                navigation={true}
                 pagination={pagination}
                 modules={[Navigation, Pagination, Mousewheel]}
-                className="relative w-[100%] h-[100%]"
+                className="relative w-full h-full"
             >
                 {projects.map((project, index) => (
-                    <SwiperSlide key={index} className="flex justify-between items-center ">
+                    <SwiperSlide key={index} className="flex justify-between items-center flex-col md:flex-row">
                         <div ref={ref}>
                             {/* Imagem Externa */}
                             <motion.div
@@ -77,16 +80,16 @@ const Projects = () => {
                             />
 
                             {/* Texto à Esquerda */}
-                            <div className="relative flex w-full h-full p-20 space-x-20">
+                            <div className="relative flex flex-col md:flex-row w-full h-full p-5 md:p-20 space-x-0 md:space-x-20">
                                 <motion.div
-                                    className="w-1/2 flex flex-col justify-center items-start space-y-4"
+                                    className="md:w-1/2 flex flex-col justify-center items-start space-y-4"
                                     style={{
                                         opacity: textOpacity,
-                                        x: textX,
+                                        x: isMobile ? null : textX,
                                     }}
                                 >
-                                    <h2 className="text-2xl font-bold text-white">{project.name}</h2>
-                                    <p className="text-base text-gray-200">
+                                    <h2 className="text-xl md:text-2xl font-bold text-white">{project.name}</h2>
+                                    <p className="text-sm md:text-base text-gray-200">
                                         <ul className="list-disc list-inside space-y-4">
                                             {project.description.map((point, index) => (
                                                 <li
@@ -98,34 +101,49 @@ const Projects = () => {
                                             ))}
                                         </ul>
                                     </p>
-                                    <Link href={project.source_code_link} underline="hover" target="_blank" className="text-blue-300 hover:underline">
-                                        {'Link to project'}
+                                    <div className="flex flex-wrap gap-4 mt-2">
+                                        {project.tags.map((tag, index) => (
+                                            <span
+                                                key={index}
+                                                className={`bg-gradient-to-r ${tag.color} px-3 py-1 text-m font-bold rounded-full`}
+                                            >
+                                                {tag.name}
+                                            </span>
+                                        ))}
+                                    </div>
+                                    <Link
+                                        href={project.source_code_link}
+                                        target="_blank"
+                                        style={{ textDecoration: 'none' }}
+                                        className="inline-flex items-center justify-center px-4 py-2 mt-4 !text-white no-underline bg-blue-500 rounded-lg shadow-md hover:bg-blue-600 hover:shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+                                    >
+                                        {'See more'}
                                     </Link>
                                 </motion.div>
 
                                 <motion.div
-                                    className="flex flex-col justify-center items-center w-1/2 space-y-4"
+                                    className="flex flex-col justify-center items-center w-full md:w-1/2 space-y-4"
                                     style={{
                                         opacity: computerOpacity,
                                         scale: computerScale,
-                                        x: imagesX,
+                                        x: isMobile ? null : imagesX,
                                     }}
                                 >
                                     {/* Imagem 1 */}
-                                    <div className="flex justify-center space-x-4 w-full">
+                                    <div className="flex flex-col md:flex-row justify-center space-x-0 md:space-x-4 w-full">
                                         <motion.img
                                             src={project.source_media.image1}
                                             alt={`Image 1 of ${project.name}`}
-                                            className="w-1/2 h-auto object-cover rounded-lg shadow-lg" />
+                                            className="w-full md:w-1/2 h-auto object-cover rounded-lg shadow-lg" />
 
                                         <motion.img
                                             src={project.source_media.image2}
                                             alt={`Image 2 of ${project.name}`}
-                                            className="w-1/2 h-auto object-cover rounded-lg shadow-lg" />
+                                            className="w-full md:w-1/2 h-auto object-cover rounded-lg shadow-lg" />
                                     </div>
 
                                     {/* Vídeo */}
-                                    <div className="relative w-full h-[40vh] mb-4">
+                                    <div className="relative w-full h-[30vh] md:h-[40vh] mb-4">
                                         <iframe
                                             title={project.name}
                                             src={project.source_media.video}

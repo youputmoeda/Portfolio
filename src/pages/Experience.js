@@ -5,8 +5,9 @@ import { experiences } from '../constants';
 import { textVariant } from '../utils/motion';
 import { SectionWrapper } from "../hoc/index";
 import 'react-vertical-timeline-component/style.min.css';
+import { useEffect, useState } from 'react';
 
-const ExperienceCard = ({ experience }) => (
+const ExperienceCard = ({ experience, isMobile }) => (
 	<VerticalTimelineElement
 		contentStyle={{
 			background: '#1d1836',
@@ -14,7 +15,14 @@ const ExperienceCard = ({ experience }) => (
 		}}
 		contentArrowStyle={{ borderRight: '7px solid #232631' }}
 		date={experience.date}
-		iconStyle={{ width:'70px',height:'70px',transform: 'translateX(-4.1px)', background: experience.iconBg }}
+		iconStyle={
+			{
+				width: isMobile ? '50px' : '70px',
+				height: isMobile ? '50px' : '70px',
+				transform: 'translateX(-4.1px)',
+				background: experience.iconBg
+			}
+		}
 		icon={
 			<div className='flex justify-center
 			items-center w-full h-full'>
@@ -49,6 +57,18 @@ const ExperienceCard = ({ experience }) => (
 )
 
 const Experience = () => {
+	const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+	// Atualiza o estado isMobile quando a janela é redimensionada
+	useEffect(() => {
+		const handleResize = () => {
+			setIsMobile(window.innerWidth < 768);
+		};
+
+		window.addEventListener('resize', handleResize);
+		return () => window.removeEventListener('resize', handleResize);
+	}, []);
+
 	return (
 		<>
 			<motion.div variants={textVariant()}>
@@ -60,7 +80,9 @@ const Experience = () => {
 				<VerticalTimeline>
 					{experiences.map((experience, index) => (
 						<ExperienceCard key={index}
-							experience={experience} />
+							experience={experience}
+							isMobile={isMobile}
+						/>
 					))}
 				</VerticalTimeline>
 			</div>

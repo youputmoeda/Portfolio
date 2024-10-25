@@ -204,24 +204,27 @@ const projects = [
 		],
 		tags: [
 			{
-				name: "react",
-				color: "blue-text-gradient",
-			},
-			{
-				name: "mongodb",
-				color: "green-text-gradient",
-			},
-			{
-				name: "tailwind",
-				color: "pink-text-gradient",
-			},
+				name: "ReactJS",
+				color: "from-blue-400 to-blue-200", // Azul claro para mais claro
+			  },
+			  {
+				name: "C# / ASP.NET",
+				color: "from-purple-600 to-purple-300", // Roxo a lilás
+			  },
+			  {
+				name: "SQL Server",
+				color: "from-red-600 to-red-400", // Vermelho escuro para claro
+			  },
+			  {
+				name: "Azure",
+				color: "from-blue-600 to-blue-400", // Azul para azul celeste
+			  },
 		],
 		source_media: {
 			image1: SKproject,
 			video: SKproject,
 			image2: SKprojectFront,
 		},
-		/* image: carrent, */
 		source_code_link: "https://github.com/",
 	},
 	{
@@ -232,16 +235,20 @@ const projects = [
 		],
 		tags: [
 			{
-				name: "react",
-				color: "blue-text-gradient",
+				name: "Unity",
+				color: "from-green-500 to-green-300", // Verde escuro para mais claro
 			},
 			{
-				name: "mongodb",
-				color: "green-text-gradient",
+				name: "ReactJS",
+				color: "from-blue-400 to-blue-200", // Azul React
 			},
 			{
-				name: "tailwind",
-				color: "pink-text-gradient",
+				name: "C# / ASP.NET",
+				color: "from-purple-600 to-purple-300", // Gradiente roxo a lilás
+			},
+			{
+				name: "PostgreSQL",
+				color: "from-blue-900 to-blue-500", // Azul-marinho para azul claro
 			},
 		],
 		source_media: {
@@ -249,7 +256,6 @@ const projects = [
 			video: "https://www.youtube.com/embed/CQq_XJeuTUA?autoplay=1&controls=0&rel=0&showinfo=0&modestbranding=1&mute=1",
 			image2: FDprojectFront,
 		},
-		/* image: carrent, */
 		source_code_link: "https://github.com/",
 	},
 	/* {
@@ -270,30 +276,30 @@ const projects = [
 				color: "pink-text-gradient",
 			},
 		], */
-		/* image: jobit, */
-		/* source_code_link: "https://github.com/",
-	},
-	{
-		name: "Trip Guide",
-		description:
-			"A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-		tags: [
-			{
-				name: "nextjs",
-				color: "blue-text-gradient",
-			},
-			{
-				name: "supabase",
-				color: "green-text-gradient",
-			},
-			{
-				name: "css",
-				color: "pink-text-gradient",
-			},
-		], */
-		/* image: tripguide, */
-		/* source_code_link: "https://github.com/",
-	}, */
+	/* image: jobit, */
+	/* source_code_link: "https://github.com/",
+},
+{
+	name: "Trip Guide",
+	description:
+		"A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+	tags: [
+		{
+			name: "nextjs",
+			color: "blue-text-gradient",
+		},
+		{
+			name: "supabase",
+			color: "green-text-gradient",
+		},
+		{
+			name: "css",
+			color: "pink-text-gradient",
+		},
+	], */
+	/* image: tripguide, */
+	/* source_code_link: "https://github.com/",
+}, */
 ];
 
 export { services, technologies, experiences, testimonials, projects };
