@@ -72,7 +72,7 @@ const Projects = () => {
             >
                 {projects.map((project, index) => (
                     <SwiperSlide key={index} className="flex justify-between items-center flex-col md:flex-row">
-                        <div ref={ref}>
+                        <div ref={ref} className="relative">
                             {/* Imagem Externa */}
                             <motion.div
                                 className="absolute inset-0 w-full h-full rounded-xl
@@ -90,7 +90,7 @@ const Projects = () => {
                                     }}
                                 >
                                     <h2 className="text-xl md:text-2xl font-bold text-white">{project.name}</h2>
-                                    <p className="text-sm md:text-base text-gray-200">
+                                    <div className="text-sm md:text-base text-gray-200">
                                         <ul className="list-disc list-inside space-y-4">
                                             {project.description.map((point, index) => (
                                                 <li
@@ -101,7 +101,7 @@ const Projects = () => {
                                                 </li>
                                             ))}
                                         </ul>
-                                    </p>
+                                    </div>
                                     <div className="flex flex-wrap gap-4 mt-2">
                                         {project.tags.map((tag, index) => (
                                             <span
@@ -153,7 +153,7 @@ const Projects = () => {
                                             title={project.name}
                                             src={project.source_media.video}
                                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                            allowfullscreen
+                                            allowFullScreen
                                             className="w-full h-full object-none rounded-lg shadow-lg"
                                         />
                                     </div>

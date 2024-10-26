@@ -19,7 +19,8 @@ const Main = () => {
 
 	useEffect(() => {
 		if (progress === 100) {
-			setTimeout(() => setIsLoading(false), 500);
+			const timer = setTimeout(() => setIsLoading(false), 500);
+			return () => clearTimeout(timer); 
 		}
 	}, [progress]);
 
