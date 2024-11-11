@@ -20,6 +20,7 @@ module.exports = {
       },
       screens: {
         xs: "450px",
+        'tablet': '986px',
       },
       backgroundImage: {
         "backgroundB": "url('./assets/Background/Background.png')", 

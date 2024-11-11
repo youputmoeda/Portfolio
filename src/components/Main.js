@@ -12,6 +12,7 @@ import Contact from '../pages/Contact';
 import Parallalex from '../pages/Parallalex';
 import Loader from '../pages/Loader';
 import { useProgress } from '@react-three/drei';
+import Footer from './Footer';
 
 const Main = () => {
 	const [isLoading, setIsLoading] = useState(true);
@@ -30,7 +31,7 @@ const Main = () => {
 				<Loader />
 			) : (
 				<div className="relative z-0 bg-primary">
-					<div className="relative z-0">
+					<div className="relative z-1">
 						<Parallalex />
 					</div>
 					<div className='relative z-30'>
@@ -44,6 +45,9 @@ const Main = () => {
 						<Experience />
 						<Projects />
 						<Contact />
+					</div>
+					<div className='relative z-30'>
+						<Footer />
 					</div>
 				</div>
 			)}
