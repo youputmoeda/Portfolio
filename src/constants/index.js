@@ -226,7 +226,7 @@ const projects = [
 			video: "https://www.youtube.com/embed/4BkDuB6i0YY",
 			image2: SKprojectFront,
 		},
-		source_code_link: "https://github.com/",
+		source_code_link: "https://shorinjikempo.azurewebsites.net/",
 	},
 	{
 		name: "Software Developer at Fakedoor",
@@ -257,7 +257,7 @@ const projects = [
 			video: "https://www.youtube.com/embed/CQq_XJeuTUA",//?autoplay=1&controls=0&rel=0&showinfo=0&modestbranding=1&mute=1",
 			image2: FDprojectFront,
 		},
-		source_code_link: "https://github.com/",
+		source_code_link: "https://www.fakedoor.com/",
 	},
 	/* {
 		name: "Job IT",
