@@ -223,7 +223,7 @@ const projects = [
 		],
 		source_media: {
 			image1: SKproject,
-			video: SKproject,
+			video: "https://www.youtube.com/embed/4BkDuB6i0YY",
 			image2: SKprojectFront,
 		},
 		source_code_link: "https://github.com/",
@@ -254,7 +254,7 @@ const projects = [
 		],
 		source_media: {
 			image1: FDunityProject,
-			video: "https://www.youtube.com/embed/CQq_XJeuTUA?autoplay=1&controls=0&rel=0&showinfo=0&modestbranding=1&mute=1",
+			video: "https://www.youtube.com/embed/CQq_XJeuTUA",//?autoplay=1&controls=0&rel=0&showinfo=0&modestbranding=1&mute=1",
 			image2: FDprojectFront,
 		},
 		source_code_link: "https://github.com/",
