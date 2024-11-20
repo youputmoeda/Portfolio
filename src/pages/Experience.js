@@ -57,12 +57,12 @@ const ExperienceCard = ({ experience, isMobile }) => (
 )
 
 const Experience = () => {
-	const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+	const [isMobile, setIsMobile] = useState(window.innerWidth <= 1169);
 
 	// Atualiza o estado isMobile quando a janela é redimensionada
 	useEffect(() => {
 		const handleResize = () => {
-			setIsMobile(window.innerWidth < 768);
+			setIsMobile(window.innerWidth <= 1169);
 		};
 
 		window.addEventListener('resize', handleResize);

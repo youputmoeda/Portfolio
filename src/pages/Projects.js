@@ -5,7 +5,7 @@ import { styles } from "../styles";
 import { projects } from "../constants";
 import { useEffect, useRef, useState } from "react";
 
-import { Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules';
+import { Keyboard, Navigation, Pagination, Zoom } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import 'swiper/css';
@@ -15,12 +15,12 @@ import { Link } from "@mui/material";
 
 
 const Projects = () => {
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 986);
 
     // Atualiza o estado isMobile quando a janela é redimensionada
     useEffect(() => {
         const handleResize = () => {
-            setIsMobile(window.innerWidth < 768);
+            setIsMobile(window.innerWidth <= 986);
         };
 
         window.addEventListener('resize', handleResize);
@@ -42,6 +42,8 @@ const Projects = () => {
     const computerScale = useTransform(scrollYProgress, [0.6, 0.8], [0.8, 1]);
 
     // Garantir que o texto e as imagens mantêm a opacidade e escala no fim da animação
+    const textOpacityTablet = useTransform(scrollYProgress, [0.45, 0.6], [0, 1]);
+    
     const textOpacity = useTransform(scrollYProgress, [0.6, 0.8], [0, 1]);
     const textX = useTransform(scrollYProgress, [0.6, 0.8], [-200, 1]);
 
@@ -67,11 +69,12 @@ const Projects = () => {
                 navigation={true}
                 pagination={pagination}
                 keyboard={true}
-                modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+                zoom={true}
+                modules={[Zoom, Navigation, Pagination, Keyboard]}
                 className="relative w-full h-full"
             >
                 {projects.map((project, index) => (
-                    <SwiperSlide key={index} className="flex justify-between items-center flex-col md:flex-row">
+                    <SwiperSlide key={index} className="flex justify-between items-center flex-col tablet:flex-row">
                         <div ref={ref} className="relative">
                             {/* Imagem Externa */}
                             <motion.div
@@ -81,16 +84,16 @@ const Projects = () => {
                             />
 
                             {/* Texto à Esquerda */}
-                            <div className="relative flex flex-col md:flex-row w-full h-full p-5 md:p-20 space-x-0 md:space-x-20">
+                            <div className="relative flex flex-col tablet:flex-row w-full h-full p-5 tablet:p-20 space-x-0 tablet:space-x-20">
                                 <motion.div
-                                    className="md:w-1/2 flex flex-col justify-center items-start space-y-4"
+                                    className="tablet:w-1/2 flex flex-col justify-center items-start space-y-4"
                                     style={{
-                                        opacity: textOpacity,
+                                        opacity: isMobile ? textOpacityTablet : textOpacity,
                                         x: isMobile ? null : textX,
                                     }}
                                 >
-                                    <h2 className="text-xl md:text-2xl font-bold text-white">{project.name}</h2>
-                                    <div className="text-sm md:text-base text-gray-200">
+                                    <h2 className="text-xl tablet:text-2xl font-bold text-white">{project.name}</h2>
+                                    <div className="text-sm tablet:text-base text-gray-200">
                                         <ul className="list-disc list-inside space-y-4">
                                             {project.description.map((point, index) => (
                                                 <li
@@ -116,14 +119,14 @@ const Projects = () => {
                                         href={project.source_code_link}
                                         target="_blank"
                                         style={{ textDecoration: 'none' }}
-                                        className="inline-flex items-center justify-center px-4 py-2 mt-4 !text-white no-underline bg-blue-500 rounded-lg shadow-md hover:bg-blue-600 hover:shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+                                        className="inline-flex items-center justify-center px-4 py-2 mt-4 !text-white no-underline bg-blue-500 rounded-lg shadow-tablet hover:bg-blue-600 hover:shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
                                     >
                                         {'See more'}
                                     </Link>
                                 </motion.div>
 
                                 <motion.div
-                                    className="flex flex-col justify-center items-center w-full md:w-1/2 space-y-4"
+                                    className="flex flex-col justify-center items-center w-full my-[50px] tablet:my-[0px] tablet:w-1/2 space-y-4"
                                     style={{
                                         opacity: computerOpacity,
                                         scale: computerScale,
@@ -132,23 +135,23 @@ const Projects = () => {
                                 >
                                     {/* Imagem 1 */}
                                     <div
-                                        className="flex flex-col md:flex-row justify-center space-x-0 md:space-x-4 w-full"
+                                        className="flex flex-col tablet:flex-row justify-center space-x-0 tablet:space-x-4 w-full"
                                     >
                                         <motion.img
                                             src={project.source_media.image1}
                                             loading="lazy"
                                             alt={`Image 1 of ${project.name}`}
-                                            className="w-full md:w-1/2 h-auto object-fill rounded-lg shadow-lg" />
+                                            className="w-full tablet:w-1/2 mb-[10px] tablet:mb-[0px] h-auto object-fill rounded-lg shadow-lg " />
 
                                         <motion.img
                                             src={project.source_media.image2}
                                             loading="lazy"
                                             alt={`Image 2 of ${project.name}`}
-                                            className="w-full md:w-1/2 h-auto object-fill rounded-lg shadow-lg" />
+                                            className="w-full tablet:w-1/2 h-auto object-fill rounded-lg shadow-lg" />
                                     </div>
 
                                     {/* Vídeo */}
-                                    <div className="relative w-full h-[30vh] md:h-[40vh] mb-4">
+                                    <div className="relative w-full h-[30vh] tablet:h-[40vh] mb-4">
                                         <iframe
                                             title={project.name}
                                             src={project.source_media.video}
