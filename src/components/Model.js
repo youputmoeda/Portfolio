@@ -7,7 +7,7 @@ export const Experience = () => {
 	const [isMobile, setIsMobile] = useState(false);
 
 	useEffect(() => {
-		const mediaQuery = window.matchMedia('(max-width: 500px)');
+		const mediaQuery = window.matchMedia('(max-width: 1023px)');
 		setIsMobile(mediaQuery.matches);
 
 		const handleMediaQueryChange = (event) => {

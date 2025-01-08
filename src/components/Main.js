@@ -9,10 +9,10 @@ import Experience from '../pages/Experience';
 import About from '../pages/about';
 import Projects from '../pages/Projects';
 import Contact from '../pages/Contact';
-import Parallalex from '../pages/Parallalex';
 import Loader from '../pages/Loader';
 import { useProgress } from '@react-three/drei';
 import Footer from './Footer';
+import CustomCursor from './CustomCursor';
 
 const Main = () => {
 	const [isLoading, setIsLoading] = useState(true);
@@ -21,37 +21,36 @@ const Main = () => {
 	useEffect(() => {
 		if (progress === 100) {
 			const timer = setTimeout(() => setIsLoading(false), 500);
-			return () => clearTimeout(timer); 
+			return () => clearTimeout(timer);
 		}
 	}, [progress]);
 
 	return (
-		<Router>
-			{isLoading ? (
-				<Loader />
-			) : (
-				<div className="relative z-0 bg-primary">
-					<div className="relative z-1">
-						<Parallalex />
-					</div>
-					<div className='relative z-30'>
-						<PersonalNavbar />
-					</div>
-					<div className="absolute inset-0 z-10">
-						<Hero />
-					</div>
-					<div className='relative z-20'>
+		<>
+			<CustomCursor />
+			<Router>
+				{isLoading ? (
+					<Loader />
+				) : (
+					<div className="relative z-0 bg-primary">
+						{/* 				<div className="relative -z-90">
+                <Parallalex />
+            </div> */}
+						<div className='bg-hero-patternDesktop bg-cover bg-no-repeat bg-center'>
+							<PersonalNavbar />
+							<Hero />
+						</div>
 						<About />
 						<Experience />
 						<Projects />
 						<Contact />
+						<div className='relative z-30'>
+							<Footer />
+						</div>
 					</div>
-					<div className='relative z-30'>
-						<Footer />
-					</div>
-				</div>
-			)}
-		</Router>
+				)}
+			</Router>
+		</>
 	)
 }
 

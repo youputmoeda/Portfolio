@@ -23,6 +23,8 @@ module.exports = {
         'tablet': '986px',
       },
       backgroundImage: {
+        "hero-patternDesktop": "url('/src/assets/IslandBackgroundDesktop.jpg')",
+        "hero-patternMobile": "url('/src/assets/IslandBackgroundMobile.jpg')",
         "backgroundB": "url('./assets/Background/Background.png')", 
         "Big-mountain": "url('./assets/Background/BigMoutain.png')",
         "Left-mountain": "url('./assets/Background/LeftMoutain.png')",

@@ -1,0 +1,63 @@
+/* Cursor interno */
+#cursor-inner {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 182, 193, 1);
+    /* Rosa */
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease-in-out;
+    box-shadow: 0 0 10px rgba(255, 182, 193, 0.8);
+}
+
+/* Cursor externo */
+#cursor-outer {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(255, 182, 193, 0.5);
+    /* Borda translúcida */
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    animation: pulse 2s infinite;
+    transition: transform 0.3s ease-out;
+    box-shadow: 0 0 20px rgba(255, 182, 193, 0.5);
+}
+
+/* Efeito de pulso */
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
+
+a:hover~#cursor-outer,
+button:hover~#cursor-outer {
+    border-color: rgba(136, 125, 158, 0.8);
+    /* Cor mais vibrante */
+    transform: scale(1.8);
+    /* Escala maior */
+}
+
+a:hover~#cursor-inner,
+button:hover~#cursor-inner {
+    background-color: rgba(136, 125, 158, 1);
+    /* Cor mais vibrante */
+}
+
+.cursor-hover {
+    transform: scale(1.5); /* Expande o cursor */
+    border-color: rgba(255, 182, 193, 0.8); /* Cor mais vibrante */
+    background-color: rgba(255, 182, 193, 0.2); /* Fundo translúcido */
+  }
