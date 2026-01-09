@@ -8,7 +8,7 @@ const Footer = () => {
 
                 <div className="flex flex-col justify-between order-last tablet:order-first mt-[30px] tablet:mt-[0px]">
 
-                    <p className="flex items-center">&#169; <span className="hidden tablet:inline mx-1">Copyright</span> 2024</p>
+                    <p className="flex items-center">&#169; <span className="hidden tablet:inline mx-1">Copyright</span> 2026</p>
 
                     <p className="text-base">
                         Made with:

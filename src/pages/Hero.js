@@ -24,7 +24,7 @@ const Hero = ({ setLoadingProgress }) => {
 									strings: [
 										"João",
 										"A Problem Solver",
-										"A Lifelong Learner",
+										"A Solution Engineer",
 										"A Full Stack Developer",
 										"A Game Developer",
 										"A Project Manager",

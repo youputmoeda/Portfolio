@@ -26,6 +26,7 @@
 } from "../assets"; */
 
 import bi4all from "../assets/bi4all.webp";
+import skypro from "../assets/Skypro-Logo-colapsed.png";
 import fakedoor from "../assets/fakedoor.svg";
 import gamePad from "../assets/socialMedia.png";
 import projectManager from "../assets/ProjectManager.png";
@@ -61,7 +62,7 @@ const services = [
 		icon: gamePad,
 	},
 	{
-		title: "Full-Stack Developer",
+		title: "Solution Engineer",
 		icon: fullStack,
 	},
 	{
@@ -127,16 +128,17 @@ const technologies = [
 
 const experiences = [
 	{
-		title: "Fullstack Software Engineer",
-		company_name: "BI4ALL",
-		icon: bi4all,
+		title: "IT Fullstack Developer",
+		company_name: "SKYPRO",
+		icon: skypro,
 		iconBg: "#fff",
-		date: "Sept 2022 - July 2023",
+		date: "Fev 2024 - Current",
 		points: [
-			"Integrated the Workflow Management API into the Employee Portal, amplifying its functionalities and providing a unified platform.",
-			"Identified and resolved system bottlenecks, ensuring optimal performance and responsiveness to user interactions within the Employee Portal.",
-			"Responsible for the creation of new features within the Employee Portal, elevating the overall user experience and engagement.",
-			"Actively collaborated in defining and implementing best development practices, fostering an environment of efficiency, consistency, and innovation.",
+			"Serving as the primary technical owner for the front-end architecture of the new mySkypro project, defining the UI/UX strategy and ensuring its scalable implementation using React.",
+			"Developing end-to-end features across the stack with .NET and React within a monorepo environment, ensuring seamless integration between the frontend and RESTful APIs.",
+			"Acting as the most senior in-house developer, providing guidance and conducting code reviews for teammates to ensure alignment with best practices and architectural standards.",
+			"Managing server infrastructure and deployments via ClaraNet, including the setup and optimization of CI/CD pipelines to automate the software delivery lifecycle.",
+			"Leveraging AI-driven development workflows, specifically Cursor, to accelerate coding velocity, technical documentation, and the delivery of complex features.",
 		],
 	},
 	{
@@ -151,6 +153,19 @@ const experiences = [
 			"Utilized Git on Bitbucket, managing branches, commits, and conflicts for cohesive code history.",
 			"Contributed significantly to a project release, handling critical responsibilities for success.",
 			"Collaborated with various teams, including design, frontend, and backend development, ensuring cohesion and effectiveness in projects."
+		],
+	},
+	{
+		title: "Fullstack Software Engineer",
+		company_name: "BI4ALL",
+		icon: bi4all,
+		iconBg: "#fff",
+		date: "Sept 2022 - July 2023",
+		points: [
+			"Integrated the Workflow Management API into the Employee Portal, amplifying its functionalities and providing a unified platform.",
+			"Identified and resolved system bottlenecks, ensuring optimal performance and responsiveness to user interactions within the Employee Portal.",
+			"Responsible for the creation of new features within the Employee Portal, elevating the overall user experience and engagement.",
+			"Actively collaborated in defining and implementing best development practices, fostering an environment of efficiency, consistency, and innovation.",
 		],
 	},
 	/* {
@@ -207,19 +222,19 @@ const projects = [
 			{
 				name: "ReactJS",
 				color: "from-blue-400 to-blue-200", // Azul claro para mais claro
-			  },
-			  {
+			},
+			{
 				name: "C# / ASP.NET",
 				color: "from-purple-600 to-purple-300", // Roxo a lilás
-			  },
-			  {
+			},
+			{
 				name: "SQL Server",
 				color: "from-red-600 to-red-400", // Vermelho escuro para claro
-			  },
-			  {
+			},
+			{
 				name: "Azure",
 				color: "from-blue-600 to-blue-400", // Azul para azul celeste
-			  },
+			},
 		],
 		source_media: {
 			image1: SKproject,
