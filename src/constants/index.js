@@ -132,7 +132,7 @@ const experiences = [
 		company_name: "SKYPRO",
 		icon: skypro,
 		iconBg: "#fff",
-		date: "Fev 2024 - Current",
+		date: "Fev 2025 - Current",
 		points: [
 			"Serving as the primary technical owner for the front-end architecture of the new mySkypro project, defining the UI/UX strategy and ensuring its scalable implementation using React.",
 			"Developing end-to-end features across the stack with .NET and React within a monorepo environment, ensuring seamless integration between the frontend and RESTful APIs.",
